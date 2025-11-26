@@ -99,28 +99,6 @@
   background: linear-gradient(90deg, #00d9ff, #6b63ff);
 }
 
-/* Admin Link */
-.sticky-nav-links .admin-link {
-  color: #6b63ff;
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-}
-
-.sticky-nav-links .admin-link:hover {
-  background: rgba(107, 99, 255, 0.2);
-  color: #00d9ff;
-}
-
-.sticky-nav-links .admin-link::after {
-  display: none;
-}
-
 /* Sticky Hamburger Menu */
 .sticky-hamburger {
   display: none;

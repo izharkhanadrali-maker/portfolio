@@ -1,20 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 const StickyNavbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const navigate = useNavigate();
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-    setMobileMenuOpen(false);
-  };
-
-  const goToAdmin = () => {
-    navigate('/admin/messages');
     setMobileMenuOpen(false);
   };
 
@@ -81,12 +74,6 @@ const StickyNavbar = () => {
             e.preventDefault();
             scrollToSection('contact');
           }}>Contact</a>
-          <a href="/admin/messages" onClick={(e) => {
-            e.preventDefault();
-            goToAdmin();
-          }} className="admin-link" title="Admin Panel">
-            <i className="fas fa-lock"></i>
-          </a>
         </div>
       </div>
     </nav>
