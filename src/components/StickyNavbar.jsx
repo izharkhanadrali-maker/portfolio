@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const StickyNavbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+    setMobileMenuOpen(false);
+  };
+
+  const goToAdmin = () => {
+    navigate('/admin/messages');
     setMobileMenuOpen(false);
   };
 
@@ -26,7 +33,8 @@ const StickyNavbar = () => {
   return (
     <nav className="sticky-navbar">
       <div className="sticky-nav-inner">
-        <a href="#home" className="sticky-logo" onClick={() => {
+        <a href="#home" className="sticky-logo" onClick={(e) => {
+          e.preventDefault();
           scrollToSection('home');
         }}>
           Izhar Adrali
@@ -45,13 +53,40 @@ const StickyNavbar = () => {
 
         {/* Navigation Links */}
         <div className={`sticky-nav-links ${mobileMenuOpen ? 'mobile-open' : ''}`}>
-          <a href="#home" onClick={() => scrollToSection('home')}>Home</a>
-          <a href="#projects" onClick={() => scrollToSection('projects')}>Projects</a>
-          <a href="#education" onClick={() => scrollToSection('education')}>Academia</a>
-          <a href="#experience" onClick={() => scrollToSection('experience')}>Experience</a>
-          <a href="#blog" onClick={() => scrollToSection('blog')}>Blog</a>
-          <a href="#skills" onClick={() => scrollToSection('skills')}>Skills</a>
-          <a href="#contact" onClick={() => scrollToSection('contact')}>Contact</a>
+          <a href="#home" onClick={(e) => {
+            e.preventDefault();
+            scrollToSection('home');
+          }}>Home</a>
+          <a href="#projects" onClick={(e) => {
+            e.preventDefault();
+            scrollToSection('projects');
+          }}>Projects</a>
+          <a href="#education" onClick={(e) => {
+            e.preventDefault();
+            scrollToSection('education');
+          }}>Academia</a>
+          <a href="#experience" onClick={(e) => {
+            e.preventDefault();
+            scrollToSection('experience');
+          }}>Experience</a>
+          <a href="#blog" onClick={(e) => {
+            e.preventDefault();
+            scrollToSection('blog');
+          }}>Blog</a>
+          <a href="#skills" onClick={(e) => {
+            e.preventDefault();
+            scrollToSection('skills');
+          }}>Skills</a>
+          <a href="#contact" onClick={(e) => {
+            e.preventDefault();
+            scrollToSection('contact');
+          }}>Contact</a>
+          <a href="/admin/messages" onClick={(e) => {
+            e.preventDefault();
+            goToAdmin();
+          }} className="admin-link" title="Admin Panel">
+            <i className="fas fa-lock"></i>
+          </a>
         </div>
       </div>
     </nav>
