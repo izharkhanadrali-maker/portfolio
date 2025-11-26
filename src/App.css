@@ -2418,6 +2418,10 @@ section,
 .admin-panel {
   max-width: 1000px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
 }
 
 .admin-header {
