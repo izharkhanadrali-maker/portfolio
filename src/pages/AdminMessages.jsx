@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import FloatingBubbles from '../components/FloatingBubbles';
+import StickyNavbar from '../components/StickyNavbar';
 
 function AdminMessages() {
   const [messages, setMessages] = useState([]);
@@ -89,30 +91,37 @@ function AdminMessages() {
 
   if (!isAuthenticated) {
     return (
-      <div className="page-container admin-login">
-        <h1 data-aos="fade-up">Admin <span className="highlight">Panel</span></h1>
-        <div className="auth-form" data-aos="fade-up" data-aos-delay="100">
-          <form onSubmit={handleLogin}>
-            <div className="form-group">
-              <input
-                type="password"
-                placeholder="Enter admin password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-            {authError && <div className="form-status error">{authError}</div>}
-            <button type="submit" className="btn">Login</button>
-            <Link to="/" className="btn outline" style={{ marginTop: '10px', textAlign: 'center', display: 'block' }}>Back Home</Link>
-          </form>
+      <>
+        <FloatingBubbles />
+        <StickyNavbar />
+        <div className="page-container admin-login">
+          <h1 data-aos="fade-up">Admin <span className="highlight">Panel</span></h1>
+          <div className="auth-form" data-aos="fade-up" data-aos-delay="100">
+            <form onSubmit={handleLogin}>
+              <div className="form-group">
+                <input
+                  type="password"
+                  placeholder="Enter admin password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
+              {authError && <div className="form-status error">{authError}</div>}
+              <button type="submit" className="btn">Login</button>
+              <Link to="/" className="btn outline" style={{ marginTop: '10px', textAlign: 'center', display: 'block' }}>Back Home</Link>
+            </form>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 
   return (
-    <div className="page-container admin-panel" data-aos="fade-up">
+    <>
+      <FloatingBubbles />
+      <StickyNavbar />
+      <div className="page-container admin-panel" data-aos="fade-up">
       <div className="admin-header">
         <h1 data-aos="fade-up">Admin <span className="highlight">Panel</span></h1>
         <button onClick={handleLogout} className="btn outline">Logout</button>
@@ -224,7 +233,8 @@ function AdminMessages() {
           </div>
         )}
       </div>
-    </div>
+      </div>
+    </>
   );
 }
 
