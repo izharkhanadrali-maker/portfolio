@@ -17,6 +17,9 @@ function AdminMessages() {
     if (sessionAuth === 'true') {
       setIsAuthenticated(true);
       loadData();
+    } else {
+      // Ensure data is loaded even if not authenticated for display purposes
+      loadData();
     }
   }, []);
 

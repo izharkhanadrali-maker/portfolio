@@ -2404,7 +2404,11 @@ h1 {
 header,
 main,
 section,
-.page-container,
+.page-container {
+  position: relative;
+  z-index: 10;
+}
+
 .modal-overlay {
   position: relative;
   z-index: 2;
