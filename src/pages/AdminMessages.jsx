@@ -11,7 +11,7 @@ function AdminMessages() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [authError, setAuthError] = useState('');
 
-  const ADMIN_PASSWORD = 'admin123'; // Change this to a secure password
+  const ADMIN_PASSWORD = 'portfolio12345'; // Change this to a secure password
 
   useEffect(() => {
     // Check if already authenticated in this session
